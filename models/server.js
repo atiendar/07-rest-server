@@ -18,6 +18,9 @@ class Server {
         // * CORS
         this.app.use(cors())
 
+        // * Lectura y parseo del middleware
+        this.app.use(express.json())
+
         this.app.use(express.static('public')) // ! <- Denegando el acceso a la carpeta pública
     }
 
