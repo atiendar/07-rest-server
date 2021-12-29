@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 
 class Server {
     constructor() {
@@ -13,6 +14,9 @@ class Server {
     }
 
     middlewares() {
+        // * CORS
+        this.app.use(cors())
+
         this.app.use(express.static('public')) // ! <- Denegando el acceso a la carpeta pública
     }
 
@@ -24,13 +28,13 @@ class Server {
         })
 
         this.app.put('/api', (req, res) => {
-            res.json({
+            res.status(400).json({
                 msg: 'put API'
             })
         })
 
         this.app.post('/api', (req, res) => {
-            res.json({
+            res.status(201).json({
                 msg: 'post API'
             })
         })
