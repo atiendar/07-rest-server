@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const dbConnection = async() => { // <- Conexión con la base de datos
+const dbConnection = async() => { // * <- Conexión con la base de datos
     try {
         await mongoose.connect(process.env.MONGODB_CNN, {
             useNewUrlParser: true,
